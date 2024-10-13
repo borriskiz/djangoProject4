@@ -14,7 +14,6 @@ class ItemType(models.Model):
         default="not_bought",
     )
 
-
     class Meta:
         verbose_name = "Item Type"
         verbose_name_plural = "Item Types"
@@ -75,6 +74,9 @@ class Customer(models.Model):
     last_name = models.CharField(verbose_name="Last Name", max_length=255)
     email = models.EmailField(verbose_name="Email", unique=True)
     phone = models.CharField(verbose_name="Phone Number", max_length=20, blank=True)
+    items = models.ManyToManyField('HandmadeItem',
+                                       verbose_name="Items to purchase",
+                                       )
 
     class Meta:
         verbose_name = "Customer"
@@ -85,9 +87,8 @@ class Customer(models.Model):
         return f"{self.first_name} {self.last_name}"
 
     def total_cost(self):
-
         total = 0
-        for item in self.handmadeitem_set.all():
+        for item in self.items.all():
             total += item.price
         return total
 
@@ -103,23 +104,21 @@ class HandmadeItem(models.Model):
         blank=True,
         verbose_name="Item type",
     )
-    materials = models.ManyToManyField(
-        Material,
-        verbose_name="Item material",
-    )
-    market = models.ForeignKey(
-        Market,
-        on_delete=models.SET_NULL,
-        null=True,
-        blank=True,
-        verbose_name="Item market",
-    )
+    materials = models.ManyToManyField('Material',
+                                       verbose_name="Item material",
+                                       )
+    market = models.ForeignKey('Market',
+                               on_delete=models.SET_NULL,
+                               null=True,
+                               blank=True,
+                               verbose_name="Item market",
+                               )
     price = models.DecimalField(max_digits=10, decimal_places=2)
     image = models.ImageField(
         verbose_name="Item picture", upload_to="items/", blank=True, null=True
     )
     customers = models.ManyToManyField(
-        Customer,
+        'Customer',
         related_name="handmade_items",
         verbose_name="Customers",
         blank=True,
