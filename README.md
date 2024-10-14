@@ -74,5 +74,5 @@
 
 ### И aggregate()
 
-![5.2.2.jpg](media%2Fscreenshots%2F5.2.2.jpg)
 ![5.2.1.jpg](media%2Fscreenshots%2F5.2.1.jpg)
+![5.2.2.jpg](media%2Fscreenshots%2F5.2.2.jpg)
