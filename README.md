@@ -57,7 +57,22 @@
 ![3.3.3.jpg](media%2Fscreenshots%2F3.3.3.jpg)
 
 ## Задание 4
+
 ### Использую Q объекты для более сложного запроса
+
 ![4.1.jpg](media%2Fscreenshots%2F4.1.jpg)
 ![4.2.jpg](media%2Fscreenshots%2F4.2.jpg)
 ![4.3.jpg](media%2Fscreenshots%2F4.3.jpg)
+
+## Задание 5
+
+### Использую annotate()
+
+![5.1.1.jpg](media%2Fscreenshots%2F5.1.1.jpg)
+![5.1.2.jpg](media%2Fscreenshots%2F5.1.2.jpg)
+![5.1.3.jpg](media%2Fscreenshots%2F5.1.3.jpg)
+
+### И aggregate()
+
+![5.2.2.jpg](media%2Fscreenshots%2F5.2.2.jpg)
+![5.2.1.jpg](media%2Fscreenshots%2F5.2.1.jpg)
