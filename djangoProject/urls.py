@@ -16,9 +16,23 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
+from handmade.views import (
+    HandmadeItemListView,
+    HandmadeItemDetailView,
+    HandmadeItemCreateView,
+    HandmadeItemUpdateView,
+    HandmadeItemDeleteView,
+    start_page,
+)
 
-from handmade import views
 urlpatterns = [
     path('admin/', admin.site.urls),
-    #path('',views.TestView.as_view(),name='test_view'),
-]
+    path('', start_page, name='start_page'),  # Добавляем путь для стартовой страницы
+    path('handmade-items/', HandmadeItemListView.as_view(), name='handmade_item_list'),
+    path('handmade-items/<int:pk>/', HandmadeItemDetailView.as_view(), name='handmade_item_detail'),
+    path('handmade-items/create/', HandmadeItemCreateView.as_view(), name='handmade_item_create'),
+    path('handmade-items/update/<int:pk>/', HandmadeItemUpdateView.as_view(), name='handmade_item_update'),
+    path('handmade-items/delete/<int:pk>/', HandmadeItemDeleteView.as_view(), name='handmade_item_delete'),
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

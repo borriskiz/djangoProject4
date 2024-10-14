@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Список товаров{% endblock %}
+
+{% block content %}
+    <h1>Список товаров</h1>
+    <ul>
+        {% for item in items %}
+            <li>
+                <a href="{% url 'handmade_item_detail' item.pk %}">{{ item.name }}</a> 
+                - {{ item.price }} $
+                {% if item.image %}
+                    <img src="{{ item.image.url }}" alt="{{ item.name }}" style="width: 100px; height: auto;">
+                {% else %}
+                    <p>Нет изображения</p>
+                {% endif %}
+            </li>
+        {% empty %}
+            <li>Товары отсутствуют</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

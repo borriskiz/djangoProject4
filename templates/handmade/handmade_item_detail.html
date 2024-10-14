@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Детали товара{% endblock %}
+
+{% block content %}
+    <h1>{{ item.name }}</h1>
+    <p>Тип: {{ item.item_type }}</p>
+    <p>Материалы: 
+        {% for material in item.materials.all %}
+            {{ material.name }}{% if not forloop.last %}, {% endif %}
+        {% endfor %}
+    </p>
+    <p>Цена: {{ item.price }} $</p>
+    <p>Дата поступления: {{ item.date_receipt }}</p>
+    {% if item.image %}
+        <img src="{{ item.image.url }}" alt="{{ item.name }}" style="width: 300px; height: auto;">
+    {% else %}
+        <p>Нет изображения</p>
+    {% endif %}
+    <p>Рынок: {{ item.market.name }}</p>
+
+    <a href="{% url 'handmade_item_update' item.pk %}">Редактировать</a> |
+    <a href="{% url 'handmade_item_delete' item.pk %}">Удалить</a> |
+    <a href="{% url 'handmade_item_list' %}">Назад к списку</a>
+{% endblock %}

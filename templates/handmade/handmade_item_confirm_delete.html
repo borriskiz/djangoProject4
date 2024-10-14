@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Подтверждение удаления{% endblock %}
+
+{% block content %}
+    <h1>Подтверждение удаления</h1>
+    <p>Вы уверены, что хотите удалить "{{ object.name }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Удалить</button>
+    </form>
+    <a href="{% url 'handmade_item_list' %}">Отмена</a>
+{% endblock %}
