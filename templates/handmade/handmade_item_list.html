@@ -3,20 +3,72 @@
 {% block title %}Список товаров{% endblock %}
 
 {% block content %}
+    <style>
+        .item-list {
+            margin-left: 20px; /* Отступ для выравнивания списка слева */
+            padding: 0;
+            list-style-type: none;
+            max-width: 600px; /* Ограничиваем ширину списка для красивого размещения */
+        }
+
+        .item-list li {
+            border-bottom: 1px solid #ddd; /* Линия разделения между товарами */
+            padding: 10px 0;
+            font-size: 1.1em; /* Увеличим шрифт для лучшего восприятия */
+            display: flex; /* Используем flexbox для выравнивания элементов */
+            align-items: center; /* Центрируем элементы по вертикали */
+        }
+
+        .item-list img {
+            width: 50px; /* Ширина миниатюры */
+            height: auto; /* Автоматическая высота */
+            margin-right: 10px; /* Отступ между изображением и текстом */
+        }
+
+        .item-list a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 600; /* Чуть-чуть усилен текст для названий товаров */
+            transition: color 0.2s ease; /* Эффект при наведении */
+        }
+
+        .item-list a:hover {
+            color: #007BFF; /* Цвет при наведении не слишком яркий */
+        }
+
+        .item-price {
+            display: inline-block;
+            margin-left: 10px; /* Легкий отступ для цены справа от названия */
+            color: #777; /* Цвет цены нейтральный, не слишком яркий */
+            font-size: 0.95em; /* Чуть меньше шрифт для цены */
+        }
+
+        .no-items {
+            font-size: 1.5em;
+            color: #999;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        h1 {
+            margin-left: 20px; /* Отступ заголовка для выравнивания с контентом */
+            font-size: 1.8em;
+            color: #333;
+        }
+    </style>
+
     <h1>Список товаров</h1>
-    <ul>
+    <ul class="item-list">
         {% for item in items %}
             <li>
-                <a href="{% url 'handmade_item_detail' item.pk %}">{{ item.name }}</a> 
-                - {{ item.price }} $
                 {% if item.image %}
-                    <img src="{{ item.image.url }}" alt="{{ item.name }}" style="width: 100px; height: auto;">
-                {% else %}
-                    <p>Нет изображения</p>
+                    <img src="{{ item.image.url }}" alt="{{ item.name }}">
                 {% endif %}
+                <a href="{% url 'handmade_item_detail' item.pk %}">{{ item.name }}</a>
+                <span class="item-price">{{ item.price }} $</span>
             </li>
         {% empty %}
-            <li>Товары отсутствуют</li>
+            <div class="no-items">Товары отсутствуют</div>
         {% endfor %}
     </ul>
 {% endblock %}
