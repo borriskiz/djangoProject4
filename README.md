@@ -1,3 +1,33 @@
+# Домашнее задание 6
+
+#### Поиск по вхождению строки в название предмета
+
+![6.1.png](media%2Fscreenshots%2F6.1.png)
+
+#### или в тип предмета
+
+![6.2.png](media%2Fscreenshots%2F6.2.png)
+
+#### фильтр по принадлежности к типу с выпадающим списком
+
+![6.3.png](media%2Fscreenshots%2F6.3.png)
+
+#### фильтр по цене в диапазоне
+
+![6.4.png](media%2Fscreenshots%2F6.4.png)
+
+#### фильтр по булевому полю в foreign key
+
+![6.5.png](media%2Fscreenshots%2F6.5.png)
+
+#### фильтр по foreign key
+
+![6.6.png](media%2Fscreenshots%2F6.6.png)
+
+#### смешаный поиск
+
+![6.7.png](media%2Fscreenshots%2F6.7.png)
+
 # Домашнее задание 4
 
 ## Задание 1

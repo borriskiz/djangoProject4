@@ -1,9 +1,12 @@
 <!DOCTYPE html>
+{% load bootstrap5 %}
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Handmade Items{% endblock %}</title>
+    <!-- Bootstrap CSS -->
     <style>
         body {
             background-image: url("/media/background.jpg"); 
@@ -16,6 +19,7 @@
         header, footer {
             background-color: rgba(255, 255, 255, 0.8); 
             padding: 20px;
+            margin-bottom: 20px; 
         }
         nav ul {
             list-style-type: none; 
@@ -32,32 +36,34 @@
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="{% url 'handmade_item_list' %}">Список товаров</a></li>
-                <li><a href="{% url 'handmade_item_create' %}">Создать новый товар</a></li>
-            </ul>
-        </nav>
+        <div class="container">
+            <nav>
+                <ul class="nav">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'handmade_item_list' %}">Список товаров</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'handmade_item_create' %}">Создать новый товар</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
     
     <main class="container">
         <div class="row">
-            <!-- Sidebar -->
-            <div class="col-md-3">
+            <aside class="col-md-3">
                 {% block sidebar %}            
                 {% endblock %}
-            </div>
+            </aside>
 
-            <!-- Content -->
-            <div class="col-md-9">
+            <section class="col-md-9">
                 {% block content %}
                 {% endblock %}
-            </div>
+            </section>
         </div>
     </main>
 
     <footer>
-        <p>&copy; 2024 Handmade Items Store</p>
+        <div class="container">
+            <p>&copy; 2024 Handmade Items Store</p>
+        </div>
     </footer>
 
 </body>
