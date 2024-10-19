@@ -16,7 +16,7 @@ class HandmadeFilterSet(django_filters.FilterSet):
 
     class Meta:
         model = models.HandmadeItem
-        fields = ['term', 'item_type', 'price_range', 'original']
+        fields = ['term', 'item_type', 'price_range', 'original','market']
 
     def filter_original(self, queryset, name, value):
         if value is None:
