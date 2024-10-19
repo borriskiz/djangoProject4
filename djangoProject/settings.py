@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 
     'handmade',
     'django_filters',
+    'bootstrap5',
 ]
 
 MIDDLEWARE = [

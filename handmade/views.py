@@ -1,10 +1,10 @@
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.views.generic import DetailView, CreateView, UpdateView, DeleteView
 from django_filters.views import FilterView
 
-from handmade.models import HandmadeItem
 from handmade.filters import HandmadeFilterSet
+from handmade.models import HandmadeItem
 
 
 def start_page(request):
