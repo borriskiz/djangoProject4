@@ -1,18 +1,21 @@
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django_filters.views import FilterView
 
 from handmade.models import HandmadeItem
+from handmade.filters import HandmadeFilterSet
 
 
 def start_page(request):
     return redirect('handmade_item_list')
 
 
-class HandmadeItemListView(ListView):
+class HandmadeItemListView(FilterView):
     model = HandmadeItem
     template_name = 'handmade/handmade_item_list.html'
     context_object_name = 'items'
+    filterset_class = HandmadeFilterSet
 
 
 class HandmadeItemDetailView(DetailView):
