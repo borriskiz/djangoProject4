@@ -75,8 +75,8 @@ class Customer(models.Model):
     email = models.EmailField(verbose_name="Email", unique=True)
     phone = models.CharField(verbose_name="Phone Number", max_length=20, blank=True)
     items = models.ManyToManyField('HandmadeItem',
-                                       verbose_name="Items to purchase",
-                                       )
+                                   verbose_name="Items to purchase",
+                                   )
 
     class Meta:
         verbose_name = "Customer"

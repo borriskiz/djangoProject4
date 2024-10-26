@@ -1,3 +1,10 @@
+# Домашнее задание 8
+
+### Все модели получили свои views и Api, видны в обычном root view и в swaggerе
+
+![8.1.jpg](media%2Fscreenshots%2F8.1.jpg)
+![8.2.jpg](media%2Fscreenshots%2F8.2.jpg)
+
 # Домашнее задание 7
 
 ### Все тесты прошли успешно
